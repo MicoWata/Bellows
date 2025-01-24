@@ -1,5 +1,5 @@
 # Bellows
-
+<img src="screenshot.png" width="600" alt="Bellows plugin demo showing code folding">
 Just a few expressive keymaps along a very thin wrapper over neovim crusty folding behavior.
 
 ## Features
