@@ -1,15 +1,13 @@
 # Bellows
 
-A Neovim plugin that enhances folding functionality with Treesitter integration, customizable settings, and persistent folds.
+Just a few expressive keymaps along a very thin wrapper over neovim crusty folding behavior.
 
 ## Features
 
+- 💾 Automatic fold persistence between sessions
 - 🌲 Treesitter-based folding with intelligent expression handling
 - 🎨 Customizable colors and appearance with fallback to existing highlights
 - ⌨️  Intuitive keymaps for fold navigation and management
-- 💾 Automatic fold persistence between sessions
-- 🔧 Highly configurable with sensible defaults
-- 🖱️  Full mouse support for fold interaction
 
 ## Requirements
 
@@ -62,6 +60,18 @@ Default configuration with all options:
     },
 }
 ```
+## Keymaps
+
+Default keymaps (can be disabled with `disable_keymaps = true`):
+
+| Keymap    | Description           | 
+|-----------|----------------------|
+| `zj`      | Move to next fold    |
+| `zk`      | Move to previous fold|
+| `z<Down>` | Toggle current fold  |
+| `z<Up>`   | Close all folds     |
+| `z<Left>` | Close all other folds|
+| `z<Right>` | Open next fold layer|
 
 ### Customizing Fold Text
 
@@ -74,23 +84,6 @@ The `foldtext` option determines how folded text is displayed. The default shows
 
 Example of custom fold text:
 
-```lua
-settings = {
-    foldtext = [[printf('▸ %s [%d lines]', getline(v:foldstart), v:foldend-v:foldstart+1)]],
-}
-```
-
-## Keymaps
-
-Default keymaps (can be disabled with `disable_keymaps = true`):
-
-| Keymap    | Description           | Implementation Notes |
-|-----------|----------------------|---------------------|
-| `zj`      | Move to next fold    | Centers cursor after move |
-| `zk`      | Move to previous fold| Centers cursor after move |
-| `z<Down>` | Toggle current fold  | Recursive toggle (zA) |
-| `z<Up>`   | Close all folds     | Global fold close (zM) |
-| `z<Left>` | Close all other folds| Closes all, then opens current |
 
 ## Commands
 
