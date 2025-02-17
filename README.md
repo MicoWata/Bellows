@@ -1,17 +1,27 @@
 # Bellows
 <img src="screenshot.png" width="600" alt="Bellows plugin demo showing code folding">
-Just a few expressive keymaps and a shining polish to improve neovim's rickety folding behavior.
+A neovim plugin to fold your code like an accordionist.
+
+Actually just a few expressive keymaps and a shining polish to improve neovim's rickety folding behavior.
 
 ## Features
 
-- 💾 Automatic fold persistence between sessions
-- 🎨 Elegant treesitter highlighted folds
 - ⌨️  Intuitive keymaps for expressive fold controls
+- 🎨 Elegant treesitter highlighted folds
+- 💾 Automatic fold persistence between sessions
 
-## Requirements
+## Keymaps
 
-- Neovim >= 0.8.0
-- nvim-treesitter
+Try them, many practical combos to discover !
+
+| Keymap         | Description           | 
+|----------------|-----------------------|
+| `<Shift-End>`  | Move to next fold     |
+| `<Shift-Home>` | Move to previous fold |
+| `<Shift-Up>`   | Close all folds       |
+| `<Shift-Left>` | Close all other folds |
+| `<Shift-Right>` | Toggle fold           |
+| `<Shift-Down>` | Toggle fold cascade   |
 
 ## Installation
 
@@ -27,16 +37,10 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim):
     },
 }
 ```
-## Keymaps
+## Requirements
 
-| Keymap         | Description           | 
-|----------------|-----------------------|
-| `<Shift-End>`  | Move to next fold     |
-| `<Shift-Home>` | Move to previous fold |
-| `<Shift-Left>` | Close all other folds |
-| `<Shift-Right>` | Toggle fold           |
-| `<Shift-Up>`   | Close all folds       |
-| `<Shift-Down>` | Toggle fold cascade   |
+- Neovim >= 0.8.0
+- nvim-treesitter
 
 ## Commands
 
@@ -50,7 +54,7 @@ The plugin automatically handles fold persistence through these events:
 **Q: Why aren't my folds persisting between sessions?**
 A: Make sure you have `set viewoptions?` properly configured. The minimal required options are `folds,cursor`.
 
-**Q: Can I change the default keymaps ?**
+**Q: Can I change the default keymaps or the fold text ?**
 A: I'm working on it :)
 
 ## License
