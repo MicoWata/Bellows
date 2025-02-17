@@ -1,4 +1,22 @@
 local Fold = {
+	gutter = function()
+		local namespace = vim.api.nvim_create_namespace("line_numbers")
+		local last_line = vim.api.nvim_buf_line_count(0)
+
+		for row = 1, last_line do
+			if vim.fn.foldclosed(row) == row then
+				vim.api.nvim_buf_set_extmark(0, namespace, row - 1, 0, {
+					number_hl_group = "Folded",
+				})
+			else
+				if row > 2 then
+					vim.api.nvim_buf_set_extmark(0, namespace, row - 1, 0, {
+						number_hl_group = "LineNr",
+					})
+				end
+			end
+		end
+	end,
 	paint = function()
 		local start = vim.v.foldstart
 		local finish = vim.v.foldend
