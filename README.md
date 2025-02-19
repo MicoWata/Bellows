@@ -1,14 +1,14 @@
 # Bellows
 <img src="screenshot.png" width="600" alt="Bellows plugin demo showing code folding">
 A neovim plugin to fold your code like an accordionist.
-
-Actually just a few expressive keymaps and a shining polish to improve neovim's rickety folding behavior.
+Actually just a few expressive keymaps and a highlight polish to improve neovim's rickety folding behavior.
 
 ## Features
 
-- ⌨️  Intuitive keymaps for expressive fold controls
-- 🎨 Elegant treesitter highlighted folds
-- 💾 Automatic fold persistence between sessions
+- Intuitive keymaps for expressive fold controls
+- Insightful treesitter highlighted folds
+- Effective code navigation, since folding moves the cursor 
+- Fold persistence per buffer
 
 ## Keymaps
 
@@ -37,12 +37,33 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim):
     },
 }
 ```
+## Configuration
+
+You can customize Bellows by passing options to the setup function:
+
+```lua
+require("bellows").setup({
+    keys = {
+        fold = "<S-Right>",      -- Toggle fold
+        cascade = "<S-Down>",    -- Toggle fold cascade
+        close = "<S-Up>",        -- Close all folds
+        others = "<S-Left>",     -- Close all other folds
+        next = "<S-End>",        -- Jump to next fold
+        previous = "<S-Home>",   -- Jump to previous fold
+    },
+    options = {
+        middle = " ... ",        -- Text to show in folded text
+        last = true,            -- Show last line of fold
+        record = true,          -- Enable fold state recording
+    }
+})
+
 ## Requirements
 
 - Neovim >= 0.8.0
 - nvim-treesitter
 
-## Commands
+## Autocommands
 
 The plugin automatically handles fold persistence through these events:
 
@@ -64,4 +85,4 @@ MIT - See [LICENSE](./LICENSE) for more information.
 ## Acknowledgments
 
 - The Neovim community for inspiration and support
-- this reddit post : [reddit post](https://www.reddit.com/r/neovim/comments/16sqyjz/finally_we_can_have_highlighted_folds)
+- This reddit hero : [reddit post](https://www.reddit.com/r/neovim/comments/16sqyjz/finally_we_can_have_highlighted_folds)

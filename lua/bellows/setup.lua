@@ -1,26 +1,28 @@
 local Config = require("bellows.config")
 local Fold = require("bellows.fold")
---
-local setup = {}
 
-function setup.config(options)
+local Setup = {}
+
+function Setup.config(options)
 	Config.options = vim.tbl_deep_extend("force", {}, Config.defaults, options or {})
 end
 
-function setup.options()
+function Setup.options()
 	-- local options = config.options.settings
 	--
 	-- vim.opt.foldtext = options.foldtext
 	vim.opt.foldtext = "v:lua.require'bellows.fold'.paint()"
 end
 
-function setup.keymaps()
+function Setup.keymaps()
+	local keys = Config.options.keys
+
 	local keymaps = {
-		{ mode = "n", input = "<S-End>", output = "zjzz", desc = "Jump to next fold" },
-		{ mode = "n", input = "<S-Home>", output = "zkzz", desc = "Jump to last fold" },
+		{ mode = "n", input = keys.next, output = "zjzz", desc = "Jump to next fold" },
+		{ mode = "n", input = keys.previous, output = "zkzz", desc = "Jump to last fold" },
 		{
 			mode = "n",
-			input = "<S-Left>",
+			input = keys.others,
 			output = function()
 				vim.cmd("normal! zM")
 				vim.cmd("normal! za")
@@ -29,7 +31,7 @@ function setup.keymaps()
 		},
 		{
 			mode = "n",
-			input = "<S-Right>",
+			input = keys.fold,
 			output = function()
 				vim.cmd("normal! za")
 				Fold.gutter()
@@ -38,7 +40,7 @@ function setup.keymaps()
 		},
 		{
 			mode = "n",
-			input = "<S-Up>",
+			input = keys.close,
 			output = function()
 				vim.cmd("normal! zM")
 				Fold.gutter()
@@ -47,7 +49,7 @@ function setup.keymaps()
 		},
 		{
 			mode = "n",
-			input = "<S-Down>",
+			input = keys.cascade,
 			output = function()
 				vim.cmd("normal! zA")
 				Fold.gutter()
@@ -65,7 +67,7 @@ function setup.keymaps()
 	end
 end
 
-function setup.autocmds()
+function Setup.autocmds()
 	local augroup = vim.api.nvim_create_augroup("BellowsSaveFold", { clear = true })
 
 	vim.api.nvim_create_autocmd("BufWinEnter", {
@@ -88,4 +90,4 @@ function setup.autocmds()
 	})
 end
 
-return setup
+return Setup
