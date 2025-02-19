@@ -12,8 +12,6 @@ Config = {
 		},
 		options = {
 			middle = " ... ",
-			last = true,
-			record = true,
 		},
 	},
 	options = {},

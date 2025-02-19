@@ -61,7 +61,9 @@ local Fold = {
 			end
 		end
 
-		table.insert(result, { " ... ", "Folded" })
+		local middle = require("bellows.config").defaults.options.middle
+
+		table.insert(result, { middle, "Folded" })
 
 		for id, node, _ in query:iter_captures(tree:root(), 0, finish - 1, finish) do
 			local name = query.captures[id]
