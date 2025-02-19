@@ -26,6 +26,7 @@ function Setup.keymaps()
 			output = function()
 				vim.cmd("normal! zM")
 				vim.cmd("normal! za")
+				Fold.gutter()
 			end,
 			desc = "Close all other folds",
 		},

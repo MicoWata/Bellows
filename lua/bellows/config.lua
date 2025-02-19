@@ -10,9 +10,7 @@ Config = {
 			next = "<S-End>",
 			previous = "<S-Home>",
 		},
-		options = {
-			middle = " ... ",
-		},
+		middle = " ... ",
 	},
 	options = {},
 }

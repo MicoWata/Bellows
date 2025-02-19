@@ -17,6 +17,7 @@ local Fold = {
 			end
 		end
 	end,
+
 	paint = function()
 		local start = vim.v.foldstart
 		local finish = vim.v.foldend
@@ -61,7 +62,7 @@ local Fold = {
 			end
 		end
 
-		local middle = require("bellows.config").defaults.options.middle
+		local middle = require("bellows.config").options.middle
 
 		table.insert(result, { middle, "Folded" })
 
