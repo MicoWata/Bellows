@@ -18,8 +18,8 @@ function Setup.keymaps()
 	local keys = Config.options.keys
 
 	local keymaps = {
-		{ mode = "n", input = keys.next, output = "zjzz", desc = "Jump to next fold" },
-		{ mode = "n", input = keys.previous, output = "zkzz", desc = "Jump to last fold" },
+		{ mode = "n", input = keys.next, output = "zj", desc = "Jump to next fold" },
+		{ mode = "n", input = keys.previous, output = "zk", desc = "Jump to last fold" },
 		{
 			mode = "n",
 			input = keys.others,
