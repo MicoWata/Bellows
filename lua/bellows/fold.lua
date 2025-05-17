@@ -1,3 +1,4 @@
+local Config = require("bellows.config")
 local Fold = {
 	gutter = function()
 		local namespace = vim.api.nvim_create_namespace("line_numbers")
@@ -62,7 +63,7 @@ local Fold = {
 			end
 		end
 
-		local middle = require("bellows.config").defaults.options.middle
+		local middle = Config.options.middle
 
 		table.insert(result, { middle, "Folded" })
 
